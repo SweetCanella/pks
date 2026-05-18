@@ -1,0 +1,7 @@
+KR2-4/docx/
+
+# CMake build artifacts
+build/
+*.exe
+*.obj
+*.o
