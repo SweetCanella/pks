@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: elevator-sim:latest
+    command: ["app", "10", "3", "nearest"]
+
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: elevator-sim:latest
+    command: ["test"]
