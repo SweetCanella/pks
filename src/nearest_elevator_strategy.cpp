@@ -6,9 +6,8 @@
 #include "elevator.h"
 #include "request.h"
 
-Elevator* NearestElevatorStrategy::selectElevator(
-    const Request& request,
-    const std::vector<Elevator*>& elevators) {
+
+Elevator* NearestElevatorStrategy::selectElevator(const Request& request, const std::vector<Elevator*>& elevators) {
     Elevator* best = nullptr;
     int bestDistance = std::numeric_limits<int>::max();
     for (Elevator* e : elevators) {
@@ -21,3 +20,4 @@ Elevator* NearestElevatorStrategy::selectElevator(
     }
     return best;
 }
+
