@@ -19,30 +19,32 @@ docker-compose.yml    удобные docker compose команды
 
 ## Локальная сборка
 
-```bash
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-cmake --build build -j
+Команды рассчитаны на Windows и сборку через генератор Visual Studio:
 
-ctest --test-dir build --output-on-failure
+```powershell
+cmake -S . -B build -G "Visual Studio 17 2022"
+cmake --build build --config Release
+
+ctest --test-dir build -C Release --output-on-failure
 ```
 
 ## Запуск приложения
 
-```bash
-./build/elevator_sim
-./build/elevator_sim 5 2 min_queue
+```powershell
+.\build\Release\elevator_sim.exe
+.\build\Release\elevator_sim.exe 5 2 min_queue
 ```
 
 ## Запуск тестов и сценариев
 
-```bash
-./build/unit_tests
-./build/unit_tests "[elevator]"
+```powershell
+.\build\Release\unit_tests.exe
+.\build\Release\unit_tests.exe "[elevator]"
 
-./build/scenario_single_elevator
-./build/scenario_nearest_dispatch
-./build/scenario_min_queue_balance
-./build/scenario_full_simulation
+.\build\Release\scenario_single_elevator.exe
+.\build\Release\scenario_nearest_dispatch.exe
+.\build\Release\scenario_min_queue_balance.exe
+.\build\Release\scenario_full_simulation.exe
 ```
 
 ## Docker
